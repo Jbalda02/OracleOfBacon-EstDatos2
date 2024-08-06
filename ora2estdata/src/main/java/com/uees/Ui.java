@@ -16,15 +16,14 @@ import javax.swing.SwingConstants;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 
-import java.util.LinkedList;
 
 public class Ui extends JFrame {
     private com.uees.GraphLA<String> grafo;
+/** 
     private HashMap<String, HashSet<String>> filmActorsMap;
     private JPanel center;
     private JLabel label2;
@@ -41,6 +40,7 @@ public class Ui extends JFrame {
     private String line;
 
     @SuppressWarnings("unchecked")
+    */
     public Ui() {
         super("Oracle Of Bacon");
         /** Previous Calculations */
@@ -200,12 +200,13 @@ public class Ui extends JFrame {
                 }
                 grafo.dijkstra(src);
                 System.out.println("Path from " + src );
-               // System.out.println(grafo.toString());
                 LinkedList<Vertex<String>> tmp = grafo.pathFindertoVertex(dest);
                 PopUp pop = new PopUp(tmp.size());
                 tmp.forEach(a -> {
                     pop.addLabel(a.getData());
+                    pop.addLabel("↓");
                 });
+                pop.addLabel("_____");
                 pop.setVisible(true);
 
 

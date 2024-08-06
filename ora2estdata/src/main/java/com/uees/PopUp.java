@@ -2,25 +2,32 @@ package com.uees;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import java.awt.FlowLayout;
+import javax.swing.SwingConstants;
+
+import java.awt.Color;
+import java.awt.GridLayout;
 public class PopUp extends JFrame {
-    private int numberOfBacon;
 
     public PopUp(int numberOfBacon) {
         super("Answer");
-        this.numberOfBacon = numberOfBacon;
-        JLabel label = new JLabel("The number of bacon is: " + numberOfBacon);
-        setLayout(new FlowLayout(FlowLayout.CENTER));
+        JLabel label = new JLabel("The number of bacon is: " + (numberOfBacon - 2));
+        label.setAlignmentX(SwingConstants.CENTER);
+        label.setAlignmentY(SwingConstants.CENTER);
+        setLayout(new GridLayout((numberOfBacon + 1) * 3, 1));
         add(label);
         pack();
-        setSize(300, 100);
+        setLocationRelativeTo(super.getParent());
+        setSize(300, 300);
         setVisible(true);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
     }
-    public void addLabel(String text)
-    {
+    public void addLabel(String text){
+
         JLabel label = new JLabel(text);
+        label.setAlignmentX(SwingConstants.CENTER);
+        label.setAlignmentY(SwingConstants.CENTER);
+        label.setBackground(Color.white);
         add(label);
     }
 }
